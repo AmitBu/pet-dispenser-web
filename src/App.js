@@ -44,9 +44,9 @@ function App() {
           <label htmlFor="feedAmount">Feed amount (MS)</label>
           <input
             type="range"
-            min={500}
-            max={20000}
-            step={500}
+            min={50}
+            max={5000}
+            step={50}
             id={'feedAmount'}
             name={'feedAmount'}
             value={feedAmount}
