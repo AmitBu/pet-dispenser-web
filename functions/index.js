@@ -3,7 +3,7 @@ const admin = require('firebase-admin');
 admin.initializeApp();
 
 function setDispenserData(feed = null, feedAmount = null) {
-    let updateObj = { };
+    let updateObj = {};
 
     if (feedAmount) { Object.assign(updateObj, { feedAmount }) }
     if (feed !== null) { Object.assign(updateObj, { feed }) }
@@ -15,7 +15,7 @@ function setDispenserData(feed = null, feedAmount = null) {
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
 exports.helloWorld = functions.https.onRequest((request, response) => {
- response.send("Hello from Firebase!");
+    response.send("Hello from Firebase!");
 });
 
 exports.manualFeed = functions.https.onRequest(async (request, response) => {
@@ -23,6 +23,6 @@ exports.manualFeed = functions.https.onRequest(async (request, response) => {
     response.send("Feed request was sent");
 });
 
-exports.feedCatsSchedule = functions.pubsub.schedule('every 5 minutes').onRun((context) => {
+exports.feedCatsSchedule = functions.pubsub.schedule('every 10 hours from 08:00 to 20:00').onRun((context) => {
     setDispenserData(true);
 });
